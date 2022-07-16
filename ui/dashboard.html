@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doxys Vehicle Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div class="container-load">
+        <div class="header">
+            <div class="header-left">
+                <div class="header-title" style="color: #ffffff; font-weight: bold; font-size: 35px;">Doxys Vehicle Shop</div>
+                <div style="color: white; font-weight: bold; font-size: 18px;"></div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 30px;" class="name">Welcome, Loading...
+                </div>
+            </div>
+        </div>
+        <div class="loader"></div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item">Cars</div>
+                <div class="nav-item">Sedans</div>
+                <div class="nav-item">Supercars</div>
+                <div class="card">
+                  <ul>
+                      <li class="color-item" id="red"></li>
+                      <li class="color-item" id="green"></li>
+                      <li class="color-item" id="amber"></li>
+                      <li class="color-item" id="blue"></li>
+                      <li class="color-item" id="gray"></li>
+                  </ul>
+              </div>
+                <div class="nav-item-close">Close</div>
+            </div>
+        </div>
+    </div>
+    <div class="cars-page-container close-all">
+        <div class="header">
+            <div class="header-left">
+                <div class="header-title" style="color: #ffffff; font-weight: bold; font-size: 35px;">Doxys Vehicle Shop</div>
+                <div style="color: white; font-weight: bold; font-size: 18px;"></div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 30px;" class="name">Welcome, Loading...
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item active-nav" data-page=".cars-page-container">Cars</div>
+                <div class="nav-item" data-page=".sedan-page-container">Sedans</div>
+                <div class="nav-item" data-page=".supercar-page-container">Supercars</div>
+                <div class="card">
+                  <ul>
+                      <li class="color-item li-nav" id="red"></li>
+                      <li class="color-item" id="green"></li>
+                      <li class="color-item" id="amber"></li>
+                      <li class="color-item" id="blue"></li>
+                      <li class="color-item" id="gray"></li>
+                  </ul>
+              </div>
+                <div class="nav-item-close" data-page=".supercar-page-container">Close</div>
+            </div>
+            <div class="container">
+                <div class="search-title"> <span class="fas fa-car-side"></span> Cars</div>
+                <div class="wrapper">
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915271354388610/unknown.png" alt="">
+                    <div class="title">Cognoscenti Cabrio</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$30000</button>
+                    <button class="buycar"onclick="buyCar('cogcabrio')">Buy</button>
+                    <button class="testdrive" onclick="testCar('cogcabrio')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915333698527412/unknown.png" alt="">
+                    <div class="title">Exemplar</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$40000</button>
+                    <button class="buycar"onclick="buyCar('exemplar')">Buy</button>
+                    <button class="testdrive" onclick="testCar('exemplar')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915426723999814/unknown.png" alt="">
+                    <div class="title">F620</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$32500</button>
+                    <button class="buycar"onclick="buyCar('f620')">Buy</button>
+                    <button class="testdrive" onclick="testCar('f620')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915491169472542/unknown.png" alt="">
+                    <div class="title">Felon</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$31000</button>
+                    <button class="buycar"onclick="buyCar('felon')">Buy</button>
+                    <button class="testdrive" onclick="testCar('felon')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915558571950253/unknown.png" alt="">
+                    <div class="title">Felon GT</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$37000</button>
+                    <button class="buycar"onclick="buyCar('felon2')">Buy</button>
+                    <button class="testdrive" onclick="testCar('felon2')">Test Drive</button>
+                  </div>
+                  </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915637936566382/unknown.png" alt="">
+                        <div class="title">Jackal</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$19000</button>
+                        <button class="buycar"onclick="buyCar('jackal')">Buy</button>
+                        <button class="testdrive" onclick="testCar('jackal')">Test Drive</button>
+                      </div>
+                      </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915703288013024/unknown.png" alt="">
+                        <div class="title">Oracle</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$22000</button>
+                        <button class="buycar"onclick="buyCar('oracle')">Buy</button>
+                        <button class="testdrive" onclick="testCar('oracle')">Test Drive</button>
+                      </div>
+                      </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915766533935335/unknown.png" alt="">
+                        <div class="title">Oracle XS</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$28000</button>
+                        <button class="buycar"onclick="buyCar('oracle2')">Buy</button>
+                        <button class="testdrive" onclick="testCar('oracle2')">Test Drive</button>
+                      </div>
+                      </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915877288718428/unknown.png" alt="">
+                        <div class="title">Sentinel</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$30000</button>
+                        <button class="buycar"onclick="buyCar('sentinel')">Buy</button>
+                        <button class="testdrive" onclick="testCar('sentinel')">Test Drive</button>
+                      </div>
+                      </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915940656259103/unknown.png" alt="">
+                        <div class="title">Sentinel XS</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$33000</button>
+                        <button class="buycar"onclick="buyCar('sentinel2')">Buy</button>
+                        <button class="testdrive" onclick="testCar('sentinel2')">Test Drive</button>
+                      </div>
+                      </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997915940656259103/unknown.png" alt="">
+                        <div class="title">Windsor</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$27000</button>
+                        <button class="buycar"onclick="buyCar('windsor')">Buy</button>
+                        <button class="testdrive" onclick="testCar('windsor')">Test Drive</button>
+                      </div>
+                      </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997916112832430101/unknown.png" alt="">
+                        <div class="title">Windsor Drop</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$34000</button>
+                        <button class="buycar"onclick="buyCar('windsor2')">Buy</button>
+                        <button class="testdrive" onclick="testCar('windsor2')">Test Drive</button>
+                      </div>
+                      </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997916175205933158/unknown.png" alt="">
+                        <div class="title">Zion</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$22000</button>
+                        <button class="buycar"onclick="buyCar('zion')">Buy</button>
+                        <button class="testdrive" onclick="testCar('zion')">Test Drive</button>
+                      </div>
+                      </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997916234576318594/unknown.png" alt="">
+                        <div class="title">Zion Cabrio</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$28000</button>
+                        <button class="buycar"onclick="buyCar('zion2')">Buy</button>
+                        <button class="testdrive" onclick="testCar('zion2')">Test Drive</button>
+                      </div>
+                      </div>
+                      <div class="box">
+                        <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997916295204978740/unknown.png" alt="">
+                        <div class="title">Brioso 300</div>
+                        <div class="info">
+                        <button class="price"onclick="price" disabled>$12000</button>
+                        <button class="buycar"onclick="buyCar('brioso2')">Buy</button>
+                        <button class="testdrive" onclick="testCar('brioso2')">Test Drive</button>
+                      </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sedan-page-container close-all">
+        <div class="header">
+            <div class="header-left">
+                <div class="header-title" style="color: #ffffff; font-weight: bold; font-size: 35px;">Doxys Vehicle Shop</div>
+                <div style="color: white; font-weight: bold; font-size: 18px;"></div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 30px;" class="name">Welcome, Loading...
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".cars-page-container">Cars</div>
+                <div class="nav-item active-nav" data-page=".sedan-page-container">Sedans</div>
+                <div class="nav-item" data-page=".supercar-page-container">Supercars</div>
+                <div class="card">
+                  <ul>
+                      <li class="color-item" id="red"></li>
+                      <li class="color-item" id="green"></li>
+                      <li class="color-item" id="amber"></li>
+                      <li class="color-item" id="blue"></li>
+                      <li class="color-item" id="gray"></li>
+                  </ul>
+              </div>
+                <div class="nav-item-close" data-page=".supercar-page-container">Close</div>
+            </div>
+            <div class="container">
+                <div class="search-title"> <span class="fas fa-truck-pickup"></span> Sedans</div>
+                <div class="wrapper">
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917290425241660/unknown.png" alt="">
+                    <div class="title">Asea</div>
+                    <div class="info">
+                      <button class="price"onclick="price" disabled>$2500</button>
+                      <button class="buycar"onclick="buyCar('asea')">Buy</button>
+                    <button class="testdrive" onclick="testCar('asea')">Test Drive</button>
+                  </div>
+                </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917344850513920/unknown.png" alt="">
+                    <div class="title">Asterope</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$11000</button>
+                    <button class="buycar"onclick="buyCar('asterope')">Buy</button>
+                    <button class="testdrive" onclick="testCar('asterope')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917397539377283/unknown.png" alt="">
+                    <div class="title">Cognoscenti 55</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$22000</button>
+                    <button class="buycar"onclick="buyCar('cog55')">Buy</button>
+                    <button class="testdrive" onclick="testCar('cog55')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917450333073549/unknown.png" alt="">
+                    <div class="title">Cognoscenti</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$22500</button>
+                    <button class="buycar"onclick="buyCar('cognoscenti')">Buy</button>
+                    <button class="testdrive" onclick="testCar('cognoscenti')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917528640737311/unknown.png" alt="">
+                    <div class="title">Emperor</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$4250</button>
+                    <button class="buycar"onclick="buyCar('emperor')">Buy</button>
+                    <button class="testdrive" onclick="testCar('emperor')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917589785301072/unknown.png" alt="">
+                    <div class="title">Fugitive</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$20000</button>
+                    <button class="buycar"onclick="buyCar('fugitive')">Buy</button>
+                    <button class="testdrive" onclick="testCar('fugitive')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917642608345098/unknown.png" alt="">
+                    <div class="title">Glendale</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$3400</button>
+                    <button class="buycar"onclick="buyCar('glendale')">Buy</button>
+                    <button class="testdrive" onclick="testCar('glendale')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917694097633370/unknown.png" alt="">
+                    <div class="title">Glendale</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$12000</button>
+                    <button class="buycar"onclick="buyCar('glendale2')">Buy</button>
+                    <button class="testdrive" onclick="testCar('glendale2')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917781544669305/unknown.png" alt="">
+                    <div class="title">Ingot</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$4999</button>
+                    <button class="buycar"onclick="buyCar('ingot')">Buy</button>
+                    <button class="testdrive" onclick="testCar('ingot')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917831742095400/unknown.png" alt="">
+                    <div class="title">Intruder</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$11250</button>
+                    <button class="buycar"onclick="buyCar('intruder')">Buy</button>
+                    <button class="testdrive" onclick="testCar('intruder')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917885441785958/unknown.png" alt="">
+                    <div class="title">Premier</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$12000</button>
+                    <button class="buycar"onclick="buyCar('premier')">Buy</button>
+                    <button class="testdrive" onclick="testCar('premier')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997917885441785958/unknown.png" alt="">
+                    <div class="title">Primo</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$5000</button>
+                    <button class="buycar"onclick="buyCar('primo')">Buy</button>
+                    <button class="testdrive" onclick="testCar('primo')">Test Drive</button>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    <div class="supercar-page-container close-all">
+        <div class="header">
+            <div class="header-left">
+                <div class="header-title" style="color: #ffffff; font-weight: bold; font-size: 35px;">Doxys Vehicle Shop</div>
+                <div style="color: white; font-weight: bold; font-size: 18px;"></div>
+            </div>
+            <div class="header-middle">
+                <div class="date">Loading...</div>
+                <div class="time">00:00</div>
+            </div>
+            <div class="header-right">
+                <div style="color: white; font-weight: lighter; font-size: 30px;" class="name">Welcome, Loading...
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="nav-menu">
+                <div class="nav-item" data-page=".cars-page-container">Cars</div>
+                <div class="nav-item" data-page=".sedan-page-container">Sedans</div>
+                <div class="nav-item active-nav" data-page=".supercar-page-container">Supercars</div>
+                <div class="card">
+                  <ul>
+                      <li class="color-item" id="red"></li>
+                      <li class="color-item" id="green"></li>
+                      <li class="color-item" id="amber"></li>
+                      <li class="color-item" id="blue"></li>
+                      <li class="color-item" id="gray"></li>
+                  </ul>
+              </div>
+                <div class="nav-item-close" data-page=".supercar-page-container">Close</div>
+            </div>
+            <div class="container">
+                <div class="search-title"> <span class="fas fa-car"></span> Super Cars</div>
+                <div class="wrapper">
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928089520713840/unknown.png" alt="">
+                    <div class="title">Adder</div>
+                    <div class="info">
+                      <button class="price"onclick="price" disabled>$280000</button>
+                      <button class="buycar"onclick="buyCar('adder')">Buy</button>
+                    <button class="testdrive" onclick="testCar('adder')">Test Drive</button>
+                  </div>
+                </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928152703717446/unknown.png" alt="">
+                    <div class="title">Autarch</div>
+                    <div class="info">
+                      <button class="price"onclick="price" disabled>$224000</button>
+                      <button class="buycar"onclick="buyCar('autarch')">Buy</button>
+                    <button class="testdrive" onclick="testCar('autarch')">Test Drive</button>
+                  </div>
+                </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928210736103454/unknown.png" alt="">
+                    <div class="title">Banshee 900R</div>
+                    <div class="info">
+                      <button class="price"onclick="price" disabled>$120000</button>
+                      <button class="buycar"onclick="buyCar('banshee2')">Buy</button>
+                    <button class="testdrive" onclick="testCar('banshee2')">Test Drive</button>
+                  </div>
+                </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928330517041212/unknown.png" alt="">
+                    <div class="title">Bullet</div>
+                    <div class="info">
+                      <button class="price"onclick="price" disabled>$120000</button>
+                      <button class="buycar"onclick="buyCar('bullet')">Buy</button>
+                    <button class="testdrive" onclick="testCar('bullet')">Test Drive</button>
+                  </div>
+                </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928386661982208/unknown.png" alt="">
+                    <div class="title">Cheetah</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$214000</button>
+                    <button class="buycar"onclick="buyCar('cheetah')">Buy</button>
+                    <button class="testdrive" onclick="testCar('cheetah')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928445227040798/unknown.png" alt="">
+                    <div class="title">Entity XXR</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$164000</button>
+                    <button class="buycar"onclick="buyCar('entity2')">Buy</button>
+                    <button class="testdrive" onclick="testCar('entity2')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928504425447494/unknown.png" alt="">
+                    <div class="title">Entity XF</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$180000</button>
+                    <button class="buycar"onclick="buyCar('entityxf')">Buy</button>
+                    <button class="testdrive" onclick="testCar('entityxf')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928556799729775/unknown.png" alt="">
+                    <div class="title">FMJ</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$125000</button>
+                    <button class="buycar"onclick="buyCar('fmj')">Buy</button>
+                    <button class="testdrive" onclick="testCar('fmj')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928612068065380/unknown.png" alt="">
+                    <div class="title">Furia</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$230000</button>
+                    <button class="buycar"onclick="buyCar('furia')">Buy</button>
+                    <button class="testdrive" onclick="testCar('furia')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928676756828302/unknown.png" alt="">
+                    <div class="title">GP1</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$110000</button>
+                    <button class="buycar"onclick="buyCar('gp1')">Buy</button>
+                    <button class="testdrive" onclick="testCar('gp1')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928732008403015/unknown.png" alt="">
+                    <div class="title">Infernus</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$235000</button>
+                    <button class="buycar"onclick="buyCar('infernus')">Buy</button>
+                    <button class="testdrive" onclick="testCar('infernus')">Test Drive</button>
+                  </div>
+                  </div>
+                  <div class="box">
+                    <img class="img" src="https://cdn.discordapp.com/attachments/905103108382801961/997928786358182041/unknown.png" alt="">
+                    <div class="title">Itali GTB</div>
+                    <div class="info">
+                    <button class="price"onclick="price" disabled>$170000</button>
+                    <button class="buycar"onclick="buyCar('italigtb')">Buy</button>
+                    <button class="testdrive" onclick="testCar('italigtb')">Test Drive</button>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+
+</html>

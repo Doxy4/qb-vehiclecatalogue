@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+:root {
+    --color-1: #6E707C;
+    --color-2: #202020;
+    --color-3: #313131;
+    --color-4: #ffffff;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    display: none;
+}
+
+textarea {
+    font-family: 'Montserrat', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cars-page-container  {
+    background-color: var(--color-2);
+    border-radius: 15px;
+    position: absolute; 
+    width: 96.5%;
+    height: 96.5%;
+    left: 2.0%;
+    top: 1.5%;
+    display: none;
+}
+
+.supercar-page-container {
+    background-color: var(--color-2);
+    border-radius: 15px;
+    position: absolute; 
+    width: 96.5%;
+    height: 96.5%;
+    left: 2.0%;
+    top: 1.5%;
+    display: none;
+}
+
+.sedan-page-container {
+
+    background-color: var(--color-2);
+    border-radius: 15px;
+    position: absolute; 
+    width: 96.5%;
+    height: 96.5%;
+    left: 2.0%;
+    top: 1.5%;
+    display: none;
+}
+
+.container-load {
+
+    background-color: var(--color-2);
+    border-radius: 15px;
+    position: absolute; 
+    width: 96.5%;
+    height: 96.5%;
+    left: 2.0%;
+    top: 1.5%;
+    display: none;
+}
+
+.header {
+    height: 7vh;
+    background-color: var(--color-3);
+    border: 5px solid #646464;
+    width: 100%;
+    height: 105px;
+    position: absolute;
+    top: 1.5vh;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.header-middle {
+    background-color: var(--color-3);
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    margin: auto;
+    font-size: 30px;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin: auto;
+    margin-right: 60px;
+    margin-left: 0px;
+}
+
+.main-container {
+    border-top: 5px solid var(--color-3);
+    width: 100%;
+    height: 79.5%;
+    position: absolute;
+    display: flex;
+    bottom: 0;
+}
+
+.nav-menu {
+    background-color: var(--color-2);
+    border-right: 5px solid var(--color-2);
+    min-width: 22.5vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    border-bottom-left-radius: 15px;
+}
+
+.nav-item {
+    border: 0.2px solid var(--color-3);
+    border-radius: 5px;
+    background-color: var(--color-3);
+    margin-top: 10px;
+    margin-left: 15px;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.nav-item-close {
+    border: 0.2px solid var(--color-3);
+    border-radius: 5px;
+    background-color: var(--color-3);
+    margin-top: 530px;
+    margin-left: 15px;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.nav-item-close:hover {
+    border: 0.2px solid var(--color-4);
+    background-color: var(--color-1);
+}
+
+.nav-item:hover {
+    border: 0.2px solid var(--color-4);
+    background-color: var(--color-1);
+}
+
+.active-nav {
+    border: 0.2px solid var(--color-4);
+    background-color: var(--color-1);
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    border: 12px solid var(--color-3);
+    border-radius: 50%;
+    border-top: 12px solid var(--color-1);
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.search-title {
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    background-color: var(--color-3);
+    color: white;
+    font-size: 36px;
+    position: absolute;
+    width: 80.5%;
+    height: 7.5%;
+    top: -9.6%;
+    right: 86px;
+    font-weight: bolder;
+    text-align: center;
+    align-items: center;
+    user-select: none;
+}
+
+.container {
+    background-color: var(--color-2);
+    border: 2px solid var(--color-2);
+    display: flex;
+    flex-direction: column;
+    height: 74.7vh;
+    width: 85.3%;
+    margin-top: 10px;
+    margin-left: 10px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-2); 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background:var(--color-3); 
+    border-radius: 15px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background:var(--color-9); 
+  }
+
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.box {
+    /* background: linear-gradient(45deg, #efd5ff 0%, #515ada 100%); */
+    border-radius: 10px;
+    border: 1px solid var(--color-4);
+    width: calc(33% - 15px);
+    height: fit-content;
+    background: var(--color-3);
+    padding: 19.5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    display: inline-block;
+    transition: background-color 0.4s;
+}
+
+.box:hover {
+    background-color: var(--color-1);
+}
+  
+.img {
+    border: 0.2px solid var(--color-4);
+    border-radius: 5px;
+    width: 100%;
+}
+  
+.title {
+    background-color: var(--color-3);
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    margin-left: 65px;
+}
+
+.price {
+    border: 0.2px solid rgb(136, 10, 10);
+    width: 110px;
+    height: 40px;
+    font-size: 16px;  
+    background-color: rgb(136, 10, 10);
+    color: white;
+    text-align: center;
+    padding: 10px 18px
+}
+
+.buycar {
+    transition: transform 0.2s;
+    border: 0.2px solid rgb(24, 148, 51);
+    width: 110px;
+    height: 40px;
+    font-size: 16px;  
+    background-color: rgb(24, 148, 51);
+    color: white;
+    padding: 10px 18px
+}
+
+.testdrive {
+    transition: transform 0.2s;
+    border: 0.2px solid rgb(154, 156, 40);
+    width: 120px;
+    height: 40px;
+    font-size: 16px;  
+    background-color: rgb(154, 156, 40);
+    color: white;
+    padding: 10px 18px
+}
+
+.buycar:hover {
+    transform: scale(1.1);
+    border: 0.2px solid var(--color-4);
+    background-color: rgb(32, 201, 68);
+}
+
+.testdrive:hover {
+    transform: scale(1.1);
+    border: 0.2px solid var(--color-4);
+    background-color: rgb(199, 202, 33);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card {
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 250px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 30px 30px -15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-3)
+}
+
+ul {
+    list-style: none;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+}
+
+ul li {
+    width: 24px;
+    height: 24px;    
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+ul li:hover {
+    border: 0.1px solid var(--color-4);
+    transform: scale(1.2);
+}
+
+#red {
+    background-color: #ef5350;
+    border: 1px solid #ef5350;
+}
+#green {
+    background-color: #66bb6a;
+    border: 1px solid #66bb6a;
+}
+#amber {
+    background-color: #ffca28;
+    border: 1px solid #ffca28;
+}
+#blue {
+    background-color: #3352df;
+    border: 1px solid #3352df;
+}
+#gray {
+    background-color: #bdbdbd;
+    border: 1px solid #bdbdbd;
+}
+
+/* Color selected styles */
+
+body.red {
+    background-color: #ef5350;
+    color:  #ef5350;
+}
+body.green {
+    background-color: #66bb6a;
+    color: #66bb6a;
+}
+body.amber {
+    background-color: #ffca28;
+    color: #ffca28;
+}
+body.blue {
+    background-color: #3352df;
+    color: #3352df;
+}
+body.gray {
+    background-color: #bdbdbd;
+    color: #bdbdbd;
+}
