@@ -10,3 +10,5 @@
 
 ## Setup
 if you arent using qb-vehicleshop at the same time you will have to run the sql file to the database.
+
+## To change ped location change the Config.PedLocation to where you want the ped
