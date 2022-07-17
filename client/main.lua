@@ -62,7 +62,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(1000)
 		for k, v in pairs(Config.PedLocation) do
 			local pos = GetEntityCoords(PlayerPedId())	
-			local dist = #(pos - vector3(v.coords.x, v.coords.y, v.coords.z))
+			local dist = #(pos - vector3(Config.PedLocation["coords"]))
 			
 			if dist < 60 and not pedspawned then
 				TriggerEvent('qb-vehiclecatalogue:client:spawnped', v.coords)
@@ -85,7 +85,7 @@ RegisterNetEvent("qb-vehiclecatalogue:client:spawnped", function()
     end
   
     pedspawned = true
-    entity = CreatePed(5, model, -9.81, -669.57, 32.44 - 1.0, 272.3, false, false)
+    entity = CreatePed(5, model, Config.PedLocation["coords"].x, Config.PedLocation["coords"].y, Config.PedLocation["coords"].z - 1, Config.PedLocation["coords"].w, false, false)
     FreezeEntityPosition(entity, true)
     SetBlockingOfNonTemporaryEvents(entity, true)
     SetPedArmour(entity, 1000000)
