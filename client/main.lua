@@ -13,7 +13,7 @@ local tabletBone = 60309
 local tabletOffset = vector3(0.03, 0.002, -0.0)
 local tabletRot = vector3(10.0, 160.0, 0.0)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     VehShop = AddBlipForCoord(Config.Shops["Blip"])
     SetBlipSprite (VehShop, 523)
     SetBlipDisplay(VehShop, 4)
@@ -57,9 +57,9 @@ local function loadAnimDict(dict)
     end
   end
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(1000)
+	    Wait(1000)
 		for k, v in pairs(Config.PedLocation) do
 			local pos = GetEntityCoords(PlayerPedId())	
 			local dist = #(pos - vector3(Config.PedLocation["coords"]))
