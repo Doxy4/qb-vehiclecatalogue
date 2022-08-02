@@ -13,7 +13,7 @@ local tabletBone = 60309
 local tabletOffset = vector3(0.03, 0.002, -0.0)
 local tabletRot = vector3(10.0, 160.0, 0.0)
 
-CreateThread(function()
+Citizen.CreateThread(function()
     VehShop = AddBlipForCoord(Config.Shops["Blip"])
     SetBlipSprite (VehShop, 523)
     SetBlipDisplay(VehShop, 4)
@@ -55,11 +55,11 @@ local function loadAnimDict(dict)
         RequestAnimDict(dict)
         Wait(5)
     end
-  end
+end
 
-CreateThread(function()
+  Citizen.CreateThread(function()
 	while true do
-	    Wait(1000)
+		Citizen.Wait(1000)
 		for k, v in pairs(Config.PedLocation) do
 			local pos = GetEntityCoords(PlayerPedId())	
 			local dist = #(pos - vector3(Config.PedLocation["coords"]))
@@ -75,7 +75,8 @@ CreateThread(function()
 		end
 	end
 end)
-
+  
+  
 RegisterNetEvent("qb-vehiclecatalogue:client:spawnped", function()
     local model = `a_m_y_business_02`
   
@@ -253,7 +254,8 @@ RegisterNetEvent('qb-vehiclecatalogue:closenui', function()
 end)
 
 RegisterNetEvent('qb-vehiclecatalogue:client:buyvehicle', function(vehicle, plate, color)
-    QBCore.Functions.SpawnVehicle(vehicle, function(veh)
+    QBCore.Functions.TriggerCallback('QBCore:Server:SpawnVehicle', function(netId)
+        local veh = NetToVeh(netId)
         SetVehicleColours(veh, color, color)
         SetVehicleExtraColours(veh, color, 0)
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
@@ -265,29 +267,29 @@ RegisterNetEvent('qb-vehiclecatalogue:client:buyvehicle', function(vehicle, plat
         TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
         TriggerServerEvent("qb-vehicletuning:server:SaveVehicleProps", QBCore.Functions.GetVehicleProperties(veh))
         TriggerEvent("qb-vehiclecatalogue:closenui")
-    end, Config.Shops["Vehicle"], true)
+    end, vehicle, Config.Shops["Vehicle"], false)
 end)
 
 RegisterNetEvent('qb-vehiclecatalogue:client:testvehicle', function(vehicle)
     if not inTestDrive then
         inTestDrive = true
         local prevCoords = GetEntityCoords(PlayerPedId())
-        QBCore.Functions.SpawnVehicle(vehicle, function(veh)
-            TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
-            exports['LegacyFuel']:SetFuel(veh, 100)
-            SetVehicleDirtLevel(veh, 0.1)
-            SetVehicleNumberPlateText(veh, 'TSTDRIVE')
-            SetEntityAsMissionEntity(veh, true, true)
-            SetEntityHeading(veh, Config.Shops["Vehicle"].w)
-            TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
-            TriggerServerEvent('qb-vehicletuning:server:SaveVehicleProps', QBCore.Functions.GetVehicleProperties(veh))
-            testDriveVeh = veh
-            QBCore.Functions.Notify("You have 30 seconds", "success")
-            TriggerEvent("qb-vehiclecatalogue:closenui")
-        end, Config.Shops["TestDriveSpawn"], false)
-        createTestDriveReturn()
-        startTestDriveTimer(Config.Shops["TestDriveTimeLimit"] * 60, prevCoords)
-        -- startTestDriveTimer(Config.Shops["TestDriveTimeLimit"] * 60)
+    QBCore.Functions.TriggerCallback('QBCore:Server:SpawnVehicle', function(netId)
+        local veh = NetToVeh(netId)
+        TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
+        exports['LegacyFuel']:SetFuel(veh, 100)
+        SetVehicleDirtLevel(veh, 0.1)
+        SetVehicleNumberPlateText(veh, 'TSTDRIVE')
+        SetEntityAsMissionEntity(veh, true, true)
+        SetEntityHeading(veh, Config.Shops["Vehicle"].w)
+        TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
+        TriggerServerEvent('qb-vehicletuning:server:SaveVehicleProps', QBCore.Functions.GetVehicleProperties(veh))
+        testDriveVeh = veh
+        QBCore.Functions.Notify("You have 30 seconds", "success")
+        TriggerEvent("qb-vehiclecatalogue:closenui")
+    end, vehicle, Config.Shops["TestDriveSpawn"], false)
+    createTestDriveReturn()
+    startTestDriveTimer(Config.Shops["TestDriveTimeLimit"] * 60, prevCoords)
     else
         QBCore.Functions.Notify("You are already in a testdrive", "error")
     end
